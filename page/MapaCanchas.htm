@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title> Canchas DuocUC</title>
+        <style>
+            #mapa {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            height: 400px; /* Ajusta la altura según sea necesario */
+        }
+
+        .cancha {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            margin: 10px;
+            border: 2px solid #333; /* Añadimos un borde para simular las líneas de la cancha */
+            border-radius: 5px; /* Para hacer las esquinas más redondeadas */
+            cursor: pointer;
+        }
+
+        .cancha:hover {
+            background-color: lightgreen;
+        }
+        </style>
+    </head>
+
+    <body>
+        <h1>Reserva de Cancha</h1>
+        <h3>Selecciona tu cancha </h3>
+        
+        <div id="mapa">
+            <div class="cancha" id="cancha1">Cancha 1</div>
+            <div class="cancha" id="cancha2">Cancha 2</div>
+            <div class="cancha" id="cancha3">Cancha 3</div>
+            <div class="cancha" id="cancha4">Cancha 4</div>
+            <div class="cancha" id="cancha5">Cancha 5</div>
+            <div class="cancha" id="cancha6">Cancha 6</div>
+        </div>
+        
+        <div id="info">Selecciona una cancha</div>
+        
+        <script>
+            const infoDiv = document.getElementById("info");
+            const canchas = document.querySelectorAll(".cancha");
+        
+            canchas.forEach(cancha => {
+                cancha.addEventListener("mouseover", function() {
+                    infoDiv.textContent = "Seleccionaste: " + cancha.textContent;
+                });
+        
+                cancha.addEventListener("mouseout", function() {
+                    infoDiv.textContent = "Selecciona una cancha";
+                });
+        
+                cancha.addEventListener("click", function() {
+                    alert("Has seleccionado la cancha " + cancha.textContent);
+                    // Aquí puedes agregar lógica para enviar la reserva al servidor, etc.
+                });
+            });
+        </script>
+    </body>
+</html>
