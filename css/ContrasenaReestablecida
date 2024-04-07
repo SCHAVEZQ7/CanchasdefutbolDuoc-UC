@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canchas duoc</title>
+    <title>Canchas Duoc</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -79,7 +79,9 @@
         <p>Tu contraseña ha sido restablecida exitosamente.</p>
         <form action="RECUPERAR CONTRASEÑA.HTML" method="post">
             <div class="form-group">
-                <button type="submit" style="background-color: #4CAF50;">Iniciar Sesión</button> <!-- Botón verde -->
+                
+                <a href="Login" style="background-color: #4CAF50; padding: 10px; color: white; text-decoration: none; border-radius: 5px;">Iniciar Sesión</a>
+
             </div>
         </form>
     </div>
