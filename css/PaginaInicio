@@ -72,10 +72,8 @@
     
     <header>
         <h1>CANCHAS DUOC</h1>
-       
     </header>
-
-    <section id="inicio">
+        <section id="inicio">
         <h2>Reserva tu cancha de fútbol en línea ahora mismo</h2>
         <p>¡Haz tu reserva con nosotros de manera rápida y sencilla!</p>
         <a href="Login"><button>Reservar ahora</button></a>
