@@ -82,7 +82,7 @@
                 <button type="submit">Iniciar sesión</button>
             </div>
             <div class="form-group">
-                <a href="ReestablecerContrasena.HTML">¿Has olvidado tu contraseña?</a>
+                <a href="ReestablecerContrasena">¿Has olvidado tu contraseña?</a>
             </div>
             <div class="form-group">
                 <a href="CrearUsuario.HTML">Registrarse</a>
