@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva de Canchas Duoc-UC</title>
+    <style>
+        /* Add your custom CSS styles here */
+    </style>
+</head>
+<body>
+    <h1>Reserva de Canchas Duoc-UC</h1>
+    <h6>Lunes a Viernes de 10:00 a 00:00 hrs / Sabado y Domingo de 10:00 A 22:00 hrs </h6>
+
+    <label for="fecha">Seleccionar fecha:</label>
+    <input type="date" id="fecha" name="fecha">
+
+    <br><br>
+
+    <label for="hora">Seleccionar hora:</label>
+    <select id="hora" name="hora">
+        <option value="10:00">10:00</option>
+        <option value="11:00">11:00</option>
+        <option value="12:00">12:00</option>
+        <option value="13:00">13:00</option>
+        <option value="14:00">14:00</option>
+        <option value="15:00">15:00</option>
+        <option value="16:00">16:00</option>
+        <option value="17:00">17:00</option>
+        <option value="18:00">18:00</option>
+        <option value="19:00">19:00</option>
+        <option value="20:00">20:00</option>
+        <option value="21:00">21:00</option>
+        <option value="22:00">22:00</option>
+        <option value="23:00">23:00</option>
+        <!-- Add more options for available hours -->
+
+        <!-- Mark hours that are not available as disabled -->
+        <script>
+            var fecha = document.getElementById("fecha");
+            var hora = document.getElementById("hora");
+
+            fecha.addEventListener("change", function() {
+                var selectedDate = new Date(this.value);
+                var today = new Date();
+                var isWeekend = selectedDate.getDay() === 6 || selectedDate.getDay() === 0;
+                var startHour = isWeekend ? 10 : 0;
+                var endHour = isWeekend ? 22 : 0;
+
+                // Clear existing options
+                hora.innerHTML = "";
+
+                // Add available hours
+                for (var i = startHour; i <= endHour; i++) {
+                    var option = document.createElement("option");
+                    option.text = (i < 10 ? "0" : "") + i + ":00";
+                    option.value = (i < 10 ? "0" : "") + i + ":00";
+                    hora.add(option);
+                }
+            });
+        </script>
+    </select>
+
+    <br><br>
+
+    <label for="correo">Correo electrónico:</label>
+    <input type="email" id="correo" name="correo">
+
+    <br><br>
+
+    <button type="button" onclick="confirmarReserva()">Confirmar reserva</button>
+
+</body>
+</html>
