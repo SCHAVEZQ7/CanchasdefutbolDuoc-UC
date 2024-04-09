@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canchas Duoc</title>
+    <title>Reserva de Canchas de Fútbol Online</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -47,7 +47,15 @@
             background-color: #e6e6e6;
         }
 
-
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
 
         button {
             background-color: #4CAF50;
@@ -72,8 +80,14 @@
     
     <header>
         <h1>CANCHAS DUOC</h1>
+        <nav>
+            <ul>
+                <li><a href="Login.HTML">Iniciar sesión</a></li>
+            </ul>
+        </nav>
     </header>
-        <section id="inicio">
+
+    <section id="inicio">
         <h2>Reserva tu cancha de fútbol en línea ahora mismo</h2>
         <p>¡Haz tu reserva con nosotros de manera rápida y sencilla!</p>
         <a href="Login"><button>Reservar ahora</button></a>
