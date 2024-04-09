@@ -1,34 +1,35 @@
-<html>
+<!DOCTYPE html>
     <head>
-        <title> Canchas DuocUC</title>
+        <title> Canchas DuocUC: Reserva</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <style>
             #mapa {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            align-items: center;
-            height: 400px; /* Ajusta la altura según sea necesario */
-        }
-
-        .cancha {
-            width: 100px;
-            height: 100px;
-            background-color: green;
-            margin: 10px;
-            border: 2px solid #333; /* Añadimos un borde para simular las líneas de la cancha */
-            border-radius: 5px; /* Para hacer las esquinas más redondeadas */
-            cursor: pointer;
-        }
-
-        .cancha:hover {
-            background-color: lightgreen;
-        }
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                align-items: center;
+                height: 600px;
+            }
+    
+            .cancha {
+                width: 100px;
+                height: 100px;
+                background-color: green;
+                margin: 10px;
+                border: 2px solid #333;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+    
+            .cancha:hover {
+                background-color: lightgreen;
+            }
         </style>
     </head>
 
     <body>
-        <h1>Reserva de Cancha</h1>
-        <h3>Selecciona tu cancha </h3>
+        <h1>Reserva de Canchas de Fútbol</h1>
+        <h3>Selecciona tu cancha</h3>
         
         <div id="mapa">
             <div class="cancha" id="cancha1">Cancha 1</div>
@@ -38,27 +39,9 @@
             <div class="cancha" id="cancha5">Cancha 5</div>
             <div class="cancha" id="cancha6">Cancha 6</div>
         </div>
-        
-        <div id="info">Selecciona una cancha</div>
-        
-        <script>
-            const infoDiv = document.getElementById("info");
-            const canchas = document.querySelectorAll(".cancha");
-        
-            canchas.forEach(cancha => {
-                cancha.addEventListener("mouseover", function() {
-                    infoDiv.textContent = "Seleccionaste: " + cancha.textContent;
-                });
-        
-                cancha.addEventListener("mouseout", function() {
-                    infoDiv.textContent = "Selecciona una cancha";
-                });
-        
-                cancha.addEventListener("click", function() {
-                    alert("Has seleccionado la cancha " + cancha.textContent);
-                    // Aquí puedes agregar lógica para enviar la reserva al servidor, etc.
-                });
-            });
-        </script>
+        <button> Listo, ir al Pago</button>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </body>
 </html>

@@ -1,8 +1,42 @@
-<html>
-    <head>
-        <title> Canchas DuocUC</title>
-    </head>
-    <body>
-
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duoc UC:Pago</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Pago de Reserva</h1>
+        <form>
+            <div class="form-group">
+                <label for="nombreTitular">Nombre del Titular</label>
+                <input type="text" class="form-control" id="nombreTitular" placeholder="Ingrese el nombre del titular">
+            </div>
+            <div class="form-group">
+                <label for="numeroTarjeta">Número de Tarjeta</label>
+                <input type="text" class="form-control" id="numeroTarjeta" placeholder="Ingrese el número de tarjeta">
+            </div>
+            <div class="form-row">
+                <div class="col">
+                    <label for="fechaVencimiento">Fecha de Vencimiento</label>
+                    <input type="text" class="form-control" id="fechaVencimiento" placeholder="MM/AA">
+                </div>
+                <div class="col">
+                    <label for="cvv">CVV</label>
+                    <input type="text" class="form-control" id="cvv" placeholder="Ingrese el CVV">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="correoElectronico">Correo Electrónico</label>
+                <input type="email" class="form-control" id="correoElectronico" placeholder="Ingrese su correo electrónico">
+            </div>
+            <button type="submit" class="btn btn-primary">Pagar</button>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 </html>
