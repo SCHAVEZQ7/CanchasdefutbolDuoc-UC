@@ -47,7 +47,8 @@
             box-sizing: border-box;
         }
 
-        input[type="submit"] {
+        .submit-button {
+            display: block;
             width: 100%;
             padding: 10px;
             background-color: #4CAF50; /* Verde */
@@ -56,21 +57,12 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s ease; /* Agregamos una transición suave al color de fondo */
+            text-decoration: none; /* Eliminamos la subrayado del botón */
+            margin-top: 20px;
         }
 
-        input[type="submit"]:hover {
+        .submit-button:hover {
             background-color: #45a049; /* Verde más oscuro al pasar el mouse */
-        }
-
-        a {
-            text-decoration: none;
-            color: #007bff;
-            display: block;
-            margin-top: 10px;
-        }
-
-        a:hover {
-            text-decoration: underline;
         }
     </style>
 </head>
@@ -81,10 +73,8 @@
             <p>Por favor ingresa tu dirección de correo electrónico para restablecer tu contraseña.</p>
             <label for="email">Correo electrónico:</label><br>
             <input type="email" id="email" name="email" required><br><br>
-            <input type="submit" value="Restablecer Contraseña">
-            <a href="ContrasenaReestablecida.HTML">"Restablecer Contraseña"</a>
+            <a href="ContrasenaReestablecida.HTML" class="submit-button">Restablecer Contraseña</a>
         </form>
     </div>
 </body>
 </html>
-
