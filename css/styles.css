@@ -5,6 +5,13 @@ body{
     background-position: center ;
     background-size: cover;
 }
+body{
+    background-image: url(../imagen/duocplazanorte.jpg);
+
+    background-repeat: no-repeat;
+    background-position: center ;
+    background-size: cover;
+}
 
 
 
