@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restablecer Contraseña - Fútbol Educa</title>
+    <title> Canchas DuocUC:Reestablecer</title>
+    <link rel="stylesheet" href="../css/styles.css">
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
+            
             margin: 0;
             padding: 0;
             display: flex;
@@ -16,23 +17,21 @@
             height: 100vh;
         }
 
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        p {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
         form {
-            background-color: #fff;
+            background-color: #ccccccb0;
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 300px;
             text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 20px;
         }
 
         label {
@@ -49,7 +48,8 @@
             box-sizing: border-box;
         }
 
-        input[type="submit"] {
+        .submit-button {
+            display: block;
             width: 100%;
             padding: 10px;
             background-color: #4CAF50; /* Verde */
@@ -58,22 +58,23 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s ease; /* Agregamos una transición suave al color de fondo */
+            text-decoration: none; /* Eliminamos la subrayado del botón */
+            margin-top: 20px;
         }
 
-        input[type="submit"]:hover {
+        .submit-button:hover {
             background-color: #45a049; /* Verde más oscuro al pasar el mouse */
         }
     </style>
 </head>
 <body>
-    <div style="display: flex; justify-content: center;">
-        <form action="procesar_restablecer.php" method="post">
+    <div>
+        <form>
             <h1>Restablecer Contraseña</h1>
             <p>Por favor ingresa tu dirección de correo electrónico para restablecer tu contraseña.</p>
             <label for="email">Correo electrónico:</label><br>
             <input type="email" id="email" name="email" required><br><br>
-            <input type="submit" value="Restablecer Contraseña">
-            <a href="ContrasenaReestablecida.HTML">Restablecer Contraseña</a>
+            <a href="ContrasenaReestablecida.HTML" class="submit-button">Restablecer Contraseña</a>
         </form>
     </div>
 </body>
