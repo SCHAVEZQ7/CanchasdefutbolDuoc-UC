@@ -22,10 +22,27 @@
                 border-radius: 5px;
                 cursor: pointer;
             }
-    
-            .cancha:hover {
-                background-color: rgba(144, 238, 144, 0.678);
-            }
+            
+            button {
+            background-color: #007bff; /* Color de fondo del botón */
+            color: #ffffff; /* Color del texto del botón */
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Transición suave al cambiar el color de fondo */
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Cambia el color de fondo al pasar el mouse */
+        }
+        .container {
+          max-width: 800px;
+          margin: 20px auto;
+          padding: 20px;
+           background-color: #ccccccb0;
+          border-radius: 10px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);}
         </style>
     </head>
 
@@ -41,18 +58,24 @@
             <div class="cancha" id="cancha4">Cancha 4</div>
             <div class="cancha" id="cancha5">Cancha 5</div>
             <div class="cancha" id="cancha6">Cancha 6</div>
-            <div class="alert alert-success" role="alert">
-                <h4 class="alert-heading">Aviso</h4>
-                <p>Esperamos que disfrute del servicio y hospitalidad en nuestra canchas </p>
-                <hr>
-               
-                
+        
+        
+                          
             </div>
         </div>
-        <button> Listo, ir al Pago</button>
+        <div class="container">
+        <div class="text-center">
+            <h4 class="alert-heading">Aviso</h4>
+            <p>Esperamos que disfrute del servicio y hospitalidad en nuestra canchas </p> 
+        </div> 
+    </div>
+        <div class="text-center"> 
+        <button> Listo, ir al Pago</button> 
+        </div> 
+        </div>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        
+    
     </body>
 </html>
