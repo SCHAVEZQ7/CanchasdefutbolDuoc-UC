@@ -76,7 +76,7 @@
     </style>
 </head>
 <body>
-    <form action="procesar_registro.php" method="post">
+    <form action="UsuarioListo.html" method="get">
         <h1>Crear Usuario</h1>
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" required>
@@ -97,7 +97,9 @@
         <label for="confirm_password">Confirmar Contraseña:</label>
         <input type="password" id="confirm_password" name="confirm_password" required>
         <input type="submit" value="Crear Usuario">
-        <a href="Login.HTML">Cancelar</a>
+        <a href="Login.HTML" tal>Cancelar</a>
+        <a href="UsuarioListo.htm" tal>crear Usuario</a>
+        
     </form>
 
 </body>
