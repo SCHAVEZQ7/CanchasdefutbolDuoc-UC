@@ -23,6 +23,7 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             background-color: #ffffffab;
             border-radius: 5px;
+            position: relative;
         }
         .form-group {
             margin-bottom: 15px;
@@ -60,6 +61,27 @@
         .form-group a:hover {
             text-decoration: underline;
         }
+        .inicio-button {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .inicio-button button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .inicio-button button:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 <body>
@@ -81,7 +103,7 @@
                 </label>
             </div>
             <div class="form-group">
-                <a href = "Agenda.Html"button type="submit">Iniciar sesión</button></a>
+                <button type="submit">Iniciar sesión</button>
             </div>
             <div class="form-group">
                 <a href="ReestablecerContrasena.HTML">¿Has olvidado tu contraseña?</a>
@@ -90,6 +112,9 @@
                 <a href="CrearUsuario.HTML">Registrarse</a>
             </div>
         </form>
+    </div>
+    <div class="inicio-button">
+        <button onclick="window.location.href='Paginainicio.html'">Pagina de Inicio</button>
     </div>
 </body>
 </html>
