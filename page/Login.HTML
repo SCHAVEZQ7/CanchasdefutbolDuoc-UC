@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canchas DuocUC:Login</title>
+    <title>Canchas DuocUC: Login</title>
     <link rel="stylesheet" href="../css/styles.css">
-    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -18,15 +19,14 @@
         }
         .container {
             width: 300px;
-            margin: 0 auto;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 3%;
+            box-shadow: 0 0 10px rgba(173, 6, 6, 0.1);
             background-color: #ffffffab;
             border-radius: 5px;
             position: relative;
         }
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
         .form-group label {
             display: block;
@@ -62,13 +62,14 @@
             text-decoration: underline;
         }
         .inicio-button {
-            position: absolute;
-            bottom: -50px;
-            left: 50%;
-            transform: translateX(-50%);
+            text-align: center;
+            margin-top: 20px;
         }
         .inicio-button button {
-            background-color: #4CAF50;
+            background-color: #4caf61;
+            background-image: url(../imagen/duocplazanorte.jpg);
+            background-size: 300px;
+            position: static;
             border: none;
             color: white;
             padding: 10px 20px;
@@ -82,12 +83,14 @@
         .inicio-button button:hover {
             background-color: #45a049;
         }
+        
     </style>
 </head>
 <body>
-    
+
     <div class="container">
         <form> 
+            <button type="button" class="btn-close" aria-label="Close"></button>
             <div class="form-group">
                 <label for="email">Email o usuario</label>
                 <input type="text" id="email" name="email" required>
@@ -103,7 +106,7 @@
                 </label>
             </div>
             <div class="form-group">
-                <a href="Agenda.Html" type="submit" style="background-color: #4CAF50; padding: 10px; color: white; text-decoration: none; border-radius: 5px;">Iniciar sesión</button> </a>
+                <button type="submit">Iniciar sesión</button>
             </div>
             <div class="form-group">
                 <a href="ReestablecerContrasena.HTML">¿Has olvidado tu contraseña?</a>
