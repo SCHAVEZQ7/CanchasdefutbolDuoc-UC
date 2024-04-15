@@ -11,6 +11,10 @@ cancha{
     background-position: center ;
     background-size: cover;
 }
+h1,h3{
+    text-align: center;
+    text-decoration: black;
+}
 
 
 
