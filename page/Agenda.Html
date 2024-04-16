@@ -7,20 +7,22 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/styles.css">
     <style>
-      body {
+    body {
             font-family: Arial, sans-serif;
             background-color: #f2f2f2;
-            margin: 0;
-            padding: 0;
+            margin: 10;
+            padding: 1;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
         }
         h1 {
+            background-size: 100%;
             text-align: center;
-            margin-bottom: 20px;
-            color: #000; /* Color de texto negro */
+            margin:50px;
+            color: #090f0c; 
+            padding: 0;
         }
         label {
             margin-bottom: 5px;
@@ -28,8 +30,9 @@
             color: #333333; /* Color de texto más oscuro */
         }
         input[type="submit"]:hover {
-            background-color: #45a049;
+            background-color: #45a049;    
         }
+    
         form {
             background-color: rgba(255, 255, 255, 0.7); /* Fondo semitransparente blanco */
             padding: 20px;
@@ -38,13 +41,23 @@
             width: 300px;
             max-width: 100%;
         }
+        .container {
+        max-width: 400px;
+        background-position: center;
+        margin: 10px;
+        padding: 50%;
+        background-color: #ccccccb0;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);}
     
     </style>
 </head>
 <body>
-    <h1>Reserva de Canchas</h1>
 
+    
+<div>
     <form action="MapaCanchas.HTML" method="get">
+        <h1>Reserva de Canchas</h1>
         <label for="fecha">Fecha:</label>
         <input type="date" id="fecha" name="fecha" required>
 
@@ -70,6 +83,7 @@
         <input type="email" id="correo" name="correo" required>
 
         <button type="submit">Elegir Cancha</button>
+    </div>
     </form>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
