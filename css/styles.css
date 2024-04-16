@@ -16,6 +16,7 @@ h1,h3{
     text-decoration: solid aliceblue;
 }
 
+<<<<<<< HEAD
 duoccopas.jpg{
     width: 50%;
     height: 50%;
@@ -25,4 +26,10 @@ duoccopas.jpg{
     background-size: cover;
 }
 
+=======
+.carousel-item img {
+    height: 300px; /* Establece la altura deseada para las imágenes */
+    object-fit: cover; /* Ajusta la imagen para que cubra todo el espacio sin distorsión */
+}
+>>>>>>> 705f196f3175becd92ce3cd653139f1f36bda4f2
 
