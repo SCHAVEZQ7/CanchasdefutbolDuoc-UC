@@ -16,5 +16,13 @@ h1,h3{
     text-decoration: solid aliceblue;
 }
 
+duoccopas.jpg{
+    width: 50%;
+    height: 50%;
+    background-image: url(../imagen/duoccopas.jpg);
+    background-repeat: no-repeat;
+    background-position: center ;
+    background-size: cover;
+}
 
 
