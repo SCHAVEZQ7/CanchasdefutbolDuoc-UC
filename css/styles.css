@@ -16,5 +16,8 @@ h1,h3{
     text-decoration: solid aliceblue;
 }
 
-
+.carousel-item img {
+    height: 300px; /* Establece la altura deseada para las imágenes */
+    object-fit: cover; /* Ajusta la imagen para que cubra todo el espacio sin distorsión */
+}
 
