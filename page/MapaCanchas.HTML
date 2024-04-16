@@ -1,29 +1,35 @@
 <!DOCTYPE html>
-    <head>
-        <title> Canchas DuocUC: Reserva</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../css/styles.css">
-        <style>
-            #mapa {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: space-around;
-                align-items: center;
-                height: 600px;
-            }
-    
-            .cancha {
-                width: 100px;
-                padding: 0px;
-                height: 100px;
-                background-image: url(../imagen/iconofutbol.png);
-                margin: 10px;
-                border: 1px solid gray;
-                border-radius: 5px;
-                cursor: pointer;
-            }
-            
-            button {
+<html>
+<head>
+    <title> Canchas DuocUC: Reserva</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        #mapa {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            height: 600px;
+        }
+
+        .cancha {
+            width: 100px;
+            padding: 0px;
+            height: 100px;
+            background-image: url(../imagen/iconofutbol.png);
+            margin: 10px;
+            border: 1px solid gray;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .cancha.selected {
+            border-color: #007bff; 
+            border-width: 4px; 
+        }
+
+        button {
             background-color: #007bff; 
             color: #ffffff; 
             border: none;
@@ -36,18 +42,20 @@
         button:hover {
             background-color: #0056b3; 
         }
+
         .container {
-        max-width: 800px;
-        margin: 20px auto;
-        padding: 20px;
-        background-color: #ccccccb0;
-        border-radius: 10px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);}
-        </style>
-    </head>
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ccccccb0;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
 
     <body>
-        <form action="Pago.html" method="get"> 
+        <form action="Pago.html" method="get"> <!-- Cambiar a Pago.html -->
         <h1>Reserva de Canchas de Fútbol</h1>
         <h3>Selecciona tu cancha</h3>
         
@@ -60,22 +68,42 @@
             <div class="cancha" id="cancha6">Cancha 6</div>
         
         
-        
+                          
             </div>
         </div>
+
         <div class="container">
-        <div class="text-center">
-            <h4 class="alert-heading">Aviso</h4>
-            <p>Esperamos que disfrute del servicio y hospitalidad en nuestra canchas </p> 
-        </div> 
-    </div>
-        <div class="text-center"> 
-        <button> Listo, ir al Pago</button> 
-        </div> 
+            <div class="text-center">
+                <h4 class="alert-heading">Aviso</h4>
+                <p>Esperamos que sea un buen partido y a disfrutar! </p> 
+            </div> 
         </div>
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
-    </body>
+
+        <div class="text-center"> 
+            <button type="submit">Listo, ir al Pago</button> 
+        </div> 
+
+    </form>
+
+    <script>
+        var canchaSeleccionada = null;
+
+        function seleccionarCancha(cancha) {
+            // Remover la clase 'selected' de la cancha previamente seleccionada
+            if (canchaSeleccionada !== null) {
+                canchaSeleccionada.classList.remove('selected');
+            }
+            
+            // Agregar la clase 'selected' a la cancha seleccionada
+            cancha.classList.add('selected');
+            
+            // Almacenar la referencia de la cancha seleccionada
+            canchaSeleccionada = cancha;
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 </html>
