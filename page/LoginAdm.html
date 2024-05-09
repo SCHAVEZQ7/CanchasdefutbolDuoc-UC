@@ -56,21 +56,19 @@
             display: block;
             text-align: center;
             text-decoration: none;
-            color: #007bff;
+            color: #ffffff;
             margin-top: 10px;
         }
         .form-group a:hover {
             text-decoration: underline;
         }
         .inicio-button {
+            color: #45a049;
             text-align: center;
             margin-top: 20px;
         }
         .inicio-button button {
             background-color: #4CAF50;
-            background-position: center;
-            background-size: 1%px;
-            border: none;
             color: white;
             padding: 10px 20px;
             text-align: center;
@@ -100,14 +98,16 @@
                 <label for="admin_password">Contraseña del administrador</label>
                 <input type="password" id="admin_password" name="admin_password" required>
             </div>
-            <div class="form-group">
-                <button type="submit">Iniciar sesión</button>
-            </div>
-        </form>
+            <form> 
+                <div class="form-group">
+                   
+                    <a href="PaginaInicioAdm.html" class="btn btn-primary">Iniciar sesión</a>
+                </div>
+            </form>
     </div>
 
     <div class="inicio-button">
-        <button onclick="window.location.href='Paginainicio.html'">Página de inicio</button>
+        <button onclick="window.location.href='Paginainicio.html'">Inicio</button>
     </div>
 
 </body>
