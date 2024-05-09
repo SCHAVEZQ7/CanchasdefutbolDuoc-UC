@@ -32,6 +32,17 @@
             margin: auto;
             margin-bottom: 20px;
         }
+        .admin-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #321f9c; /* Cambia el color según prefieras */
+            color: #e8f537;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
 
         nav ul {
             list-style-type: none;
@@ -113,11 +124,23 @@
             background-color: #fff;
             padding: 20px;
         }
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 24px; /* Ajusta el tamaño del título para dispositivos más pequeños */
+            }
+
+            .admin-button {
+                top: 5px;
+                right: 5px;
+                padding: 5px 10px; /* Ajusta el padding para dispositivos más pequeños */
+            }
     </style>
 </head>
 <body>
     <header>
-        <h1>CANCHAS DUOC</h1>
+    <h1>CANCHAS DUOC</h1>
+    <a href="LoginAdm.html">Administrador</a>
+</header>
     </header>
 
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">

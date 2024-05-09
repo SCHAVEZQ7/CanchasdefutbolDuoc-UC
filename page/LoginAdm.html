@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canchas DuocUC: Login Administrador</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            padding: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            width: 50%;
+            margin: 120px;
+            padding: 3%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #ffffffab;
+            border-radius: 5px;
+            position: relative;
+        }
+        .form-group {
+            margin-bottom: 10px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: calc(100% - 22px);
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccccccb0;
+            border-radius: 5px;
+        }
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50; 
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .form-group button:hover {
+            background-color: #45a049;
+        }
+        .form-group a {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            color: #007bff;
+            margin-top: 10px;
+        }
+        .form-group a:hover {
+            text-decoration: underline;
+        }
+        .inicio-button {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .inicio-button button {
+            background-color: #4CAF50;
+            background-position: center;
+            background-size: 1%px;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        h1{
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Inicio de sesión para Administrador</h1>
+        <form> 
+            <div class="form-group">
+                <label for="admin_username">Nombre de usuario del administrador</label>
+                <input type="text" id="admin_username" name="admin_username" required>
+            </div>
+            <div class="form-group">
+                <label for="admin_password">Contraseña del administrador</label>
+                <input type="password" id="admin_password" name="admin_password" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Iniciar sesión</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="inicio-button">
+        <button onclick="window.location.href='Paginainicio.html'">Página de inicio</button>
+    </div>
+
+</body>
+</html>
