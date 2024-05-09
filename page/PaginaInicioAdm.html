@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administrador - CANCHAS DUOC</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            padding: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            width: 50%;
+            margin: 120px;
+            padding: 3%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #ffffffab;
+            border-radius: 5px;
+            position: relative;
+        }
+        .info-item {
+            margin-bottom: 20px;
+        }
+        .info-item h3 {
+            margin-bottom: 10px;
+        }
+        .info-item p {
+            margin: 0;
+        }
+        .inicio-button {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .inicio-button button {
+            background-color: #4CAF50;
+            background-position: center;
+            background-size: 1%px;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        h1{
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Panel de Administrador</h1>
+        
+        <div class="info-item">
+            <h3>Canchas Arrendadas</h3>
+            <p>5 canchas arrendadas actualmente.</p>
+        </div>
+        
+        <div class="info-item">
+            <h3>Dinero Recaudado</h3>
+            <p>$1500 recaudados hoy.</p>
+        </div>
+        
+        <!-- Puedes agregar más información aquí según sea necesario -->
+        
+    </div>
+
+    <div class="inicio-button">
+        <button onclick="window.location.href='LoginAdm.html'">Cerrar Sesión</button>
+    </div>
+
+</body>
+</html>
