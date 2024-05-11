@@ -3,60 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Canchas DuocUC: Agenda</title>
+    <title>Canchas DuocUC: Agenda</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/styles.css">
     <style>
     body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            margin: 10;
-            padding: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        h1 {
-            background-size: 100%;
-            text-align: center;
-            margin:50px;
-            color: #090f0c; 
-            padding: 0;
-        }
-        label {
-            margin-bottom: 5px;
-            display: block;
-            color: #333333; /* Color de texto más oscuro */
-        }
-        input[type="submit"]:hover {
-            background-color: #45a049;    
-        }
-    
-        form {
-            background-color: rgba(255, 255, 255, 0.7); /* Fondo semitransparente blanco */
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            max-width: 100%;
-        }
-        .container {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        margin: 10;
+        padding: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    h1 {
+        background-size: 100%;
+        text-align: center;
+        margin:50px;
+        color: #090f0c; 
+        padding: 0;
+    }
+    label {
+        margin-bottom: 5px;
+        display: block;
+        color: #333333; /* Color de texto más oscuro */
+    }
+    input[type="submit"]:hover {
+        background-color: #45a049;    
+    }
+
+    form {
+        background-color: rgba(255, 255, 255, 0.7); /* Fondo semitransparente blanco */
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        max-width: 100%;
+    }
+    .container {
         max-width: 400px;
         background-position: center;
         margin: 10px;
         padding: 50%;
         background-color: #ccccccb0;
         border-radius: 10px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);}
-    
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
     </style>
 </head>
 <body>
 
-    
 <div>
-    <form action="MapaCanchas.HTML" method="get">
+    <form id="miFormulario" action="pago.html" method="get">
         <h1>Reserva de Canchas</h1>
         <label for="fecha">Fecha:</label>
         <input type="date" id="fecha" name="fecha" required>
@@ -78,15 +77,54 @@
             <option value="21:00">21:00 pm</option>
             <option value="22:00">22:00 pm</option>
         </select>
-        
+
+        <label for="cancha">Cancha:</label>
+        <select id="cancha" name="cancha" required>
+            <option value="">Seleccione una cancha</option>
+            <option value="1">Cancha 1</option>
+            <option value="2">Cancha 2</option>
+            <option value="3">Cancha 3</option>
+            <option value="4">Cancha 4</option>
+            <option value="5">Cancha 5</option>
+            <option value="6">Cancha 6</option>
+        </select>
+
         <label for="correo">Correo Electrónico:</label>
         <input type="email" id="correo" name="correo" required>
 
-        <button type="submit">Elegir Cancha</button>
-    </div>
+        <h1 id="mensajeEstado"></h1>
+        <button type="button" id="irAlPago">Ir al pago</button>
     </form>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</div>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    // Función para verificar si el formulario está completo
+    function verificarFormularioCompleto() {
+        var formularioCompleto = true;
+        $("#miFormulario :input[required]").each(function() {
+            if (!$(this).val()) {
+                formularioCompleto = false;
+                return false;
+            }
+        });
+        return formularioCompleto;
+    }
+
+    // Redirige a la página de pago si el formulario está completo
+    $("#irAlPago").click(function() {
+        if (verificarFormularioCompleto()) {
+            window.location.href = "pago.html";
+        } else {
+            alert("Por favor complete todos los campos obligatorios antes de ir al pago.");
+        }
+    });
+});
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

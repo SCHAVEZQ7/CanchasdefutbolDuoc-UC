@@ -93,7 +93,7 @@
 <body>
 
     <div class="container">
-        <h1>Inicio de sesion</h1>
+        <h1>Inicio de sesión</h1>
         <form> 
             <div class="form-group">
                 <label for="email">Email o usuario</label>
@@ -110,7 +110,8 @@
                 </label>
             </div>
             <div class="form-group">
-                <a href="MapaCanchas.html" class="btn btn-primary">Iniciar sesión</a>
+                <!-- Aquí he modificado el enlace de inicio de sesión -->
+                <a href="javascript:void(0)" onclick="registrarYRedirigir()" class="btn btn-primary">Iniciar sesión</a>
             </div>
             
             <div class="form-group">
@@ -122,7 +123,16 @@
         </form>
     </div>
     <div class="inicio-button">
-        <button onclick="window.location.href='Paginainicio.html'">Pagina de Inicio</button>
+        <button onclick="window.location.href='Paginainicio.html'">Página de Inicio</button>
     </div>
+
+    <script>
+        function registrarYRedirigir() {
+            // Aquí iría el código para registrar al usuario
+
+            // Después del registro, redirige a la página "Agenda.html"
+            window.location.href = "Agenda.html";
+        }
+    </script>
 </body>
 </html>

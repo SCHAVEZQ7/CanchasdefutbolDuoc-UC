@@ -1,85 +1,137 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canchas DuocUC: Listo</title>
+    <title>Canchas DuocUC: Agenda</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/styles.css">
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f2f2f2;
-            margin: 0;
-            padding: 0;
+            margin: 10;
+            padding: 1;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
         }
-
-        .container {
-            background-color: rgba(255, 255, 255, 0.7); /* Fondo semitransparente */
+        h1 {
+            background-size: 100%;
+            text-align: center;
+            margin:50px;
+            color: #090f0c; 
+            padding: 0;
+        }
+        label {
+            margin-bottom: 5px;
+            display: block;
+            color: #333333; /* Color de texto más oscuro */
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;    
+        }
+        form {
+            background-color: rgba(255, 255, 255, 0.7); /* Fondo semitransparente blanco */
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 500px; /* Ancho máximo del contenedor */
-            width: 100%;
+            width: 300px;
+            max-width: 100%;
         }
-
-        h1, h2, h3, p {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #333; /* Color de texto */
+        .container {
+            max-width: 400px;
+            background-position: center;
+            margin: 10px;
+            padding: 50%;
+            background-color: #ccccccb0;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-
-        ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            text-align: center;
-        }
-
-        ul li {
-            margin-bottom: 5px;
-        }
-
-        ul li a {
-            color: #007bff; /* Color de enlace */
-            text-decoration: none;
-        }
-
-        ul li a:hover {
-            text-decoration: underline;
+        .error-message {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Reserva Lista</h1>
-        <p>Te llegará toda la información de la reserva.</p>
-        <h2>Nos Vemos!</h2>
-        
-        <h3>Síguenos en nuestras redes sociales:</h3>
-        <ul>
-            <li><a href="https://www.facebook.com/">
-                <img src="../imagen/FacebookSI.png" alt="Logo Facebook"></a>
-            </li>
-            <li><a href="https://www.twitter.com/">
-                <img src="../imagen/TwitterSI.png" alt="Logo Twitter"></a>
-            </li>
-            <li><a href="https://www.instagram.com/">
-                <img src="../imagen/InstagramSI.png" alt="Logo instagram"></a>
-            </li>
-            <li><a href="https://www.whatsapp.com/">
-                <img src="../imagen/WhatsappSI.png" alt="Logo whatsapp"></a>
-            </li>
-        </ul>
-    
-    </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<div>
+    <form id="miFormulario" action="pago.html" method="get">
+        <h1>Reserva de Canchas</h1>
+        <label for="fecha">Fecha:</label>
+        <input type="date" id="fecha" name="fecha" required>
+        <div class="error-message" id="fecha-error"></div>
+
+        <label for="hora">Hora:</label>
+        <select id="hora" name="hora" required>
+            <option value="">Seleccione una hora</option>
+            <option value="10:00">10:00 am</option>
+            <option value="11:00">11:00 am</option>
+            <option value="12:00">12:00 pm</option>
+            <option value="13:00">13:00 pm</option>
+            <option value="14:00">14:00 pm</option>
+            <option value="15:00">15:00 pm</option>
+            <option value="16:00">16:00 pm</option>
+            <option value="17:00">17:00 pm</option>
+            <option value="18:00">18:00 pm</option>
+            <option value="19:00">19:00 pm</option>
+            <option value="20:00">20:00 pm</option>
+            <option value="21:00">21:00 pm</option>
+            <option value="22:00">22:00 pm</option>
+        </select>
+        <div class="error-message" id="hora-error"></div>
+
+        <label for="cancha">Cancha:</label>
+        <select id="cancha" name="cancha" required>
+            <option value="">Seleccione una cancha</option>
+            <option value="1">Cancha 1</option>
+            <option value="2">Cancha 2</option>
+            <option value="3">Cancha 3</option>
+            <option value="4">Cancha 4</option>
+            <option value="5">Cancha 5</option>
+            <option value="6">Cancha 6</option>
+        </select>
+        <div class="error-message" id="cancha-error"></div>
+
+        <label for="correo">Correo Electrónico:</label>
+        <input type="email" id="correo" name="correo" required>
+        <div class="error-message" id="correo-error"></div>
+
+        <button type="button" id="irAlPago">Ir al pago</button>
+    </form>
+</div>
+
+<!-- jQuery and jQuery Validate -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#miFormulario").validate({
+            errorPlacement: function(error, element) {
+                // Colocar el mensaje de error en el div con la misma id que el campo de entrada, seguido de "-error"
+                error.appendTo("#" + element.attr("id") + "-error");
+            },
+            messages: {
+                fecha: "Debes seleccionar una fecha",
+                hora: "Debes seleccionar una hora",
+                cancha: "Debes seleccionar una cancha",
+                correo: "Debes ingresar un correo electrónico válido"
+            },
+            submitHandler: function(form) {
+                form.submit();
+            }
+        });
+
+        // Redirige a la página de pago si el formulario está completo
+        $("#irAlPago").click(function() {
+            if ($("#miFormulario").valid()) {
+                window.location.href = "pago.html";
+            }
+        });
+    });
+</script>
 </body>
 </html>
