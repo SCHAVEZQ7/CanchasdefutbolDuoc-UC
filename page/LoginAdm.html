@@ -89,7 +89,7 @@
 
     <div class="container">
         <h1>Inicio de sesión para Administrador</h1>
-        <form> 
+        <form id="loginForm"> 
             <div class="form-group">
                 <label for="admin_username">Nombre de usuario del administrador</label>
                 <input type="text" id="admin_username" name="admin_username" required>
@@ -98,17 +98,27 @@
                 <label for="admin_password">Contraseña del administrador</label>
                 <input type="password" id="admin_password" name="admin_password" required>
             </div>
-            <form> 
-                <div class="form-group">
-                   
-                    <a href="PaginaInicioAdm.html" class="btn btn-primary">Iniciar sesión</a>
-                </div>
-            </form>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+            </div>
+        </form>
     </div>
-
+    
     <div class="inicio-button">
         <button onclick="window.location.href='Paginainicio.html'">Inicio</button>
     </div>
-
+    
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            var username = document.getElementById('admin_username').value;
+            var password = document.getElementById('admin_password').value;
+    
+            if (!username || !password) {
+                alert('Debes llenar todos los campos para iniciar sesión');
+                event.preventDefault();
+            }
+        });
+    </script>
+    
 </body>
-</html>
+ </html>
