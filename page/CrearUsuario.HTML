@@ -18,7 +18,7 @@
         }
 
         form {
-            background-color: #ccccccb0;
+            background-color: rgba(255, 255, 255, 0.7);
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -55,6 +55,7 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            color: white;
         }
 
         input[type="submit"]:hover {
@@ -92,7 +93,7 @@
     </style>
 </head>
 <body>
-    <form action="UsuarioListo.html" method="get">
+    <form id="userForm">
         <h1>Crear Usuario</h1>
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" required>
@@ -117,5 +118,58 @@
             <a href="PaginaInicio.HTML">Pagina de Inicio</a>
         </div>
     </form>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Obtener el formulario
+            const form = document.getElementById("userForm");
+
+            // Agregar evento de envío al formulario
+            form.addEventListener("submit", function(event) {
+                event.preventDefault(); // Prevenir el envío del formulario por defecto
+
+                // Obtener datos del formulario
+                const nombre = document.getElementById("nombre").value;
+                const apellidos = document.getElementById("apellidos").value;
+                const rut = document.getElementById("rut").value;
+                const edad = document.getElementById("edad").value;
+                const carrera = document.getElementById("carrera").value;
+                const email = document.getElementById("email").value;
+                const duoc = document.getElementById("duoc").value;
+                const password = document.getElementById("password").value;
+                const confirm_password = document.getElementById("confirm_password").value;
+
+                // Verificar si el usuario ya existe en el localStorage
+                if (localStorage.getItem(email)) {
+                    alert("Este usuario ya existe.");
+                    return; // Detener la ejecución si el usuario ya existe
+                }
+
+                // Verificar si las contraseñas coinciden
+                if (password !== confirm_password) {
+                    alert("Las contraseñas no coinciden.");
+                    return; // Detener la ejecución si las contraseñas no coinciden
+                }
+
+                // Crear objeto usuario
+                const usuario = {
+                    nombre: nombre,
+                    apellidos: apellidos,
+                    rut: rut,
+                    edad: edad,
+                    carrera: carrera,
+                    email: email,
+                    duoc: duoc,
+                    password: password
+                };
+
+                // Guardar usuario en localStorage
+                localStorage.setItem(email, JSON.stringify(usuario));
+
+                // Redirigir a otra página
+                window.location.href = "UsuarioListo.html";
+            });
+        });
+    </script>
 </body>
 </html>

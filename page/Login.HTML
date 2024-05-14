@@ -3,51 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canchas DuocUC:Login</title>
+    <title>Canchas DuocUC: Iniciar Sesión</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 50px;
-            padding: 5px;
+            background-color: #ccccccb0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
         }
         .container {
-            width: 50%;
-            margin: 120px;
-            padding: 3%;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            background-color: #ffffffab;
-            border-radius: 5px;
-            position: relative;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            width: 300px;
+            text-align: center;
         }
         .form-group {
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
         .form-group label {
-            display: block;
-            margin-bottom: 5px;
+            font-weight: bold;
         }
         .form-group input {
             width: calc(100% - 22px);
             padding: 10px;
-            box-sizing: border-box;
-            border: 1px solid #ccccccb0;
+            border: 1px solid #ccc;
             border-radius: 5px;
         }
         .form-group button {
             width: 100%;
             padding: 10px;
             background-color: #4CAF50; 
-            color: white;
             border: none;
-            cursor: pointer;
             border-radius: 5px;
+            cursor: pointer;
+            color: white;
         }
         .form-group button:hover {
             background-color: #45a049;
@@ -62,95 +56,65 @@
         .form-group a:hover {
             text-decoration: underline;
         }
-        .inicio-button {
-            position: absolute;
-            bottom: -50px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        .inicio-button button {
-            background-color: #4CAF50;
-            background-position: center;
-            background-size: 1%px;
-            border: none;
-            color: white;
-            margin-bottom: 10%;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        h1{
-            text-align: center;
-            text-align: center;
-        }
-        
     </style>
 </head>
 <body>
-
     <div class="container">
-        <h1>Inicio de sesión</h1>
-        <form> 
+        <h1 class="text-center">Inicio de Sesión</h1>
+        <form id="loginForm"> 
             <div class="form-group">
-                <label for="email">Email o usuario</label>
-                <input type="text" id="email" name="email" required>
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email" required>
             </div>
             <div class="form-group">
-                <label for="password">Contraseña</label>
+                <label for="password">Contraseña:</label>
                 <input type="password" id="password" name="password" required>
             </div>
             <div class="form-group">
-                <label for="remember">
-                    <input type="checkbox" id="remember" name="remember" checked>
-                    Recordar contraseña
-                </label>
+                <input type="submit" value="Iniciar Sesión" class="btn btn-success">
             </div>
             <div class="form-group">
-                <!-- Aquí he modificado el enlace de inicio de sesión -->
-                <a href="javascript:void(0)" onclick="registrarYRedirigir()" class="btn btn-primary">Iniciar sesión</a>
-            </div>
-            
-            <div class="form-group">
-                <a href="ReestablecerContrasena.HTML">¿Has olvidado tu contraseña?</a>
+                <a href="ReestablecerContrasena.HTML">¿Olvidaste tu contraseña?</a>
             </div>
             <div class="form-group">
-                <a href="CrearUsuario.HTML">Registrarse</a>
+                <a href="CrearUsuario.HTML">Crear cuenta</a>
             </div>
         </form>
     </div>
-    <div class="inicio-button">
-        <button onclick="window.location.href='Paginainicio.html'">Página de Inicio</button>
-    </div>
 
     <script>
-        // Código JavaScript para crear el LocalStorage de usuarios
-        var usuarios = {
-            'ejemplo1@gmail.com': 'contraseña1',
-            'ejemplo2@example.com': 'contraseña2',
-            // Agrega aquí más usuarios según sea necesario
-        };
-        localStorage.setItem('usuarios', JSON.stringify(usuarios));
-    
-        function registrarYRedirigir() {
-            var email = document.getElementById('email').value;
-            var password = document.getElementById('password').value;
-    
-            // Obtiene el objeto de usuarios del LocalStorage
-            var usuarios = JSON.parse(localStorage.getItem('usuarios'));
-    
-            // Verifica si las credenciales ingresadas están en el objeto de usuarios
-            if (usuarios[email] === password) {
-                // Si las credenciales son correctas, redirige a la página "Agenda.html"
+        document.addEventListener("DOMContentLoaded", function() {
+            // Obtener el formulario
+            const form = document.getElementById("loginForm");
+
+            // Agregar evento de envío al formulario
+            form.addEventListener("submit", function(event) {
+                event.preventDefault(); // Prevenir el envío del formulario por defecto
+
+                // Obtener datos del formulario
+                const email = document.getElementById("email").value;
+                const password = document.getElementById("password").value;
+
+                // Obtener usuario del localStorage
+                const usuarioString = localStorage.getItem(email);
+
+                if (!usuarioString) {
+                    alert("El usuario no existe.");
+                    return; // Detener la ejecución si el usuario no existe
+                }
+
+                const usuario = JSON.parse(usuarioString);
+
+                // Verificar la contraseña
+                if (usuario.password !== password) {
+                    alert("La contraseña es incorrecta.");
+                    return; // Detener la ejecución si la contraseña es incorrecta
+                }
+
+                // Redirigir a otra página
                 window.location.href = "Agenda.html";
-            } else {
-                // Si las credenciales son incorrectas, muestra un mensaje de error
-                alert('Ingrese un email y contraseña válidos.');
-            }
-        }
+            });
+        });
     </script>
 </body>
 </html>
