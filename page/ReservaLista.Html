@@ -42,14 +42,26 @@
             margin-bottom: 5px;
         }
 
-ul li a {
-    color: #007bff; /* Color de enlace */
-    text-decoration: none;
-}
+        ul li a {
+            color: #007bff; /* Color de enlace */
+            text-decoration: none;
+        }
 
-ul li a:hover {
-    text-decoration: underline;
-}
+        ul li a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100vh;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+        }
     </style>
 </head>
 <body>
@@ -73,7 +85,9 @@ ul li a:hover {
                 <img src="../imagen/WhatsappSI.png" alt="Logo whatsapp"></a>
             </li>
         </ul>
-
+        <div class="footer">
+            <a href="PaginaInicio.HTML" class="btn btn-primary">Cerrar sesión</a>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
