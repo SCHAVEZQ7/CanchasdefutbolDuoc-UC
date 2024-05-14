@@ -101,8 +101,34 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 $(document).ready(function() {
-    // Función para verificar si el formulario está completo
-    function verificarFormularioCompleto() {
+    // Función para guardar la información del formulario en el localStorage
+    function guardarReservaEnLocalStorage() {
+        var reserva = {
+            fecha: $("#fecha").val(),
+            hora: $("#hora").val(),
+            cancha: $("#cancha").val(),
+            correo: $("#correo").val()
+        };
+        var reservasGuardadas = JSON.parse(localStorage.getItem('reservas')) || [];
+        reservasGuardadas.push(reserva);
+        localStorage.setItem('reservas', JSON.stringify(reservasGuardadas));
+    }
+
+    // Función para verificar si hay una reserva existente para el mismo horario y la misma cancha
+    function verificarReservaExistente() {
+        var nuevaReserva = {
+            fecha: $("#fecha").val(),
+            hora: $("#hora").val(),
+            cancha: $("#cancha").val()
+        };
+        var reservasGuardadas = JSON.parse(localStorage.getItem('reservas')) || [];
+        return reservasGuardadas.some(function(reserva) {
+            return reserva.fecha === nuevaReserva.fecha && reserva.hora === nuevaReserva.hora && reserva.cancha === nuevaReserva.cancha;
+        });
+    }
+
+    // Redirige a la página de pago si el formulario está completo y no hay una reserva existente
+    $("#irAlPago").click(function() {
         var formularioCompleto = true;
         $("#miFormulario :input[required]").each(function() {
             if (!$(this).val()) {
@@ -110,13 +136,14 @@ $(document).ready(function() {
                 return false;
             }
         });
-        return formularioCompleto;
-    }
 
-    // Redirige a la página de pago si el formulario está completo
-    $("#irAlPago").click(function() {
-        if (verificarFormularioCompleto()) {
-            window.location.href = "pago.html";
+        if (formularioCompleto) {
+            if (!verificarReservaExistente()) {
+                guardarReservaEnLocalStorage();
+                window.location.href = "pago.html";
+            } else {
+                alert("Ya existe una reserva para el mismo horario y la misma cancha.");
+            }
         } else {
             alert("Por favor complete todos los campos obligatorios antes de ir al pago.");
         }

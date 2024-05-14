@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es"></html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,9 +37,16 @@
             padding: 0;
             margin: 0;
             text-align: center;
+            display: flex; /* Utilizar flexbox para el diseño */
+            justify-content: center; /* Centrar los elementos horizontalmente */
         }
         ul li {
             margin-bottom: 5px;
+            margin-right: 10px; /* Espacio entre las imágenes */
+        }
+
+        ul li:last-child {
+            margin-right: 0; /* Elimina el margen derecho del último elemento */
         }
 
         ul li a {
@@ -54,6 +61,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            align-items: center; /* Centrar los elementos verticalmente */
             height: 100vh;
         }
 
@@ -61,12 +69,20 @@
             display: flex;
             justify-content: center;
             padding: 10px;
+            margin-top: 20px; /* Espacio superior */
+        }
+
+        .footer button {
+            margin-left: 10px; /* Espacio entre el botón "Cerrar sesión" y el nuevo botón */
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Reserva Lista</h1>
+        <div id="infoReserva">
+            <!-- Aquí se mostrará la información de la reserva -->
+        </div>
         <p>Te llegará toda la información de la reserva.</p>
         <h2>Nos Vemos!</h2>
 
@@ -86,12 +102,34 @@
             </li>
         </ul>
         <div class="footer">
-            <a href="PaginaInicio.HTML" class="btn btn-primary">Cerrar sesión</a>
+            <a href="PaginaReservas.HTML" class="btn btn-primary">Hacer otra reserva</a>
+            <a href="PaginaInicio.HTML" class="btn btn-primary ml-2">Cerrar sesión</a> <!-- Agregado ml-2 para separarlos -->
         </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        // Función para obtener y mostrar la información de la reserva almacenada en localStorage
+        function mostrarInfoReserva() {
+            var reservaGuardada = JSON.parse(localStorage.getItem('reserva'));
+            if (reservaGuardada) {
+                var infoReservaHTML = '<h3>Detalles de la reserva:</h3>';
+                infoReservaHTML += '<p><strong>Fecha:</strong> ' + reservaGuardada.fecha + '</p>';
+                infoReservaHTML += '<p><strong>Hora:</strong> ' + reservaGuardada.hora + '</p>';
+                infoReservaHTML += '<p><strong>Cancha:</strong> ' + reservaGuardada.cancha + '</p>';
+                infoReservaHTML += '<p><strong>Correo Electrónico:</strong> ' + reservaGuardada.correo + '</p>';
+                $('#infoReserva').html(infoReservaHTML);
+            } else {
+                $('#infoReserva').html('<p>No se encontró información de reserva.</p>');
+            }
+        }
+
+        // Llama a la función para mostrar la información de la reserva cuando la página se carga
+        mostrarInfoReserva();
+    });
+    </script>
 </body>
 </html>
