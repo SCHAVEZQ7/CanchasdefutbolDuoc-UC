@@ -127,11 +127,29 @@
     </div>
 
     <script>
+        // Código JavaScript para crear el LocalStorage de usuarios
+        var usuarios = {
+            'ejemplo1@gmail.com': 'contraseña1',
+            'ejemplo2@example.com': 'contraseña2',
+            // Agrega aquí más usuarios según sea necesario
+        };
+        localStorage.setItem('usuarios', JSON.stringify(usuarios));
+    
         function registrarYRedirigir() {
-            // Aquí iría el código para registrar al usuario
-
-            // Después del registro, redirige a la página "Agenda.html"
-            window.location.href = "Agenda.html";
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+    
+            // Obtiene el objeto de usuarios del LocalStorage
+            var usuarios = JSON.parse(localStorage.getItem('usuarios'));
+    
+            // Verifica si las credenciales ingresadas están en el objeto de usuarios
+            if (usuarios[email] === password) {
+                // Si las credenciales son correctas, redirige a la página "Agenda.html"
+                window.location.href = "Agenda.html";
+            } else {
+                // Si las credenciales son incorrectas, muestra un mensaje de error
+                alert('Email o contraseña incorrectos');
+            }
         }
     </script>
 </body>
