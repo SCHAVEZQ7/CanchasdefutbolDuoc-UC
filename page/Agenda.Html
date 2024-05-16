@@ -50,6 +50,11 @@
         border-radius: 10px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
+    .form-group a {
+        display: block;
+        width: fit-content;
+        margin: 20px auto; /* Añade espacio arriba y abajo del botón y lo centra horizontalmente */
+    }
     </style>
 </head>
 <body>
@@ -92,8 +97,16 @@
         <label for="correo">Correo Electrónico:</label>
         <input type="email" id="correo" name="correo" required>
 
-        <h1 id="mensajeEstado"></h1>
-        <button type="button" id="irAlPago">Ir al pago</button>
+        
+        <script src="https://www.mercadopago.cl/integrations/v1/web-payment-checkout.js"
+        data-preference-id="1813813646-eb3a8676-92e8-4cd6-abf8-1162c9dc78b8" data-source="button">
+        </script>
+
+        <form action="ReservaLista.Html" method="post">
+            <div class="form-group">
+                <a href="ReservaLista.Html" style="background-color: #4CAF50; padding: 10px; color: white; text-decoration: none; border-radius: 5px;">Continuar</a>
+             </div>
+        </form>
         
     </form>
 </div>
@@ -101,56 +114,50 @@
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-$(document).ready(function() {
-    // Función para guardar la información del formulario en el localStorage
-    function guardarReservaEnLocalStorage() {
-        var reserva = {
-            fecha: $("#fecha").val(),
-            hora: $("#hora").val(),
-            cancha: $("#cancha").val(),
-            correo: $("#correo").val()
-        };
-        var reservasGuardadas = JSON.parse(localStorage.getItem('reservas')) || [];
-        reservasGuardadas.push(reserva);
-        localStorage.setItem('reservas', JSON.stringify(reservasGuardadas));
-    }
-
-    // Función para verificar si hay una reserva existente para el mismo horario y la misma cancha
-    function verificarReservaExistente() {
-        var nuevaReserva = {
-            fecha: $("#fecha").val(),
-            hora: $("#hora").val(),
-            cancha: $("#cancha").val()
-        };
-        var reservasGuardadas = JSON.parse(localStorage.getItem('reservas')) || [];
-        return reservasGuardadas.some(function(reserva) {
-            return reserva.fecha === nuevaReserva.fecha && reserva.hora === nuevaReserva.hora && reserva.cancha === nuevaReserva.cancha;
-        });
-    }
-
-    // Redirige a la página de pago si el formulario está completo y no hay una reserva existente
-    $("#irAlPago").click(function() {
-        var formularioCompleto = true;
-        $("#miFormulario :input[required]").each(function() {
-            if (!$(this).val()) {
-                formularioCompleto = false;
-                return false;
-            }
-        });
-
-        if (formularioCompleto) {
-            if (!verificarReservaExistente()) {
-                guardarReservaEnLocalStorage();
-                window.location.href = "pago.html";
-            } else {
-                alert("Ya existe una reserva para el mismo horario y la misma cancha.");
-            }
-        } else {
-            alert("Por favor complete todos los campos obligatorios antes de ir al pago.");
+    $(document).ready(function() {
+        // Function to save the form information in the localStorage
+        function saveReservationToLocalStorage() {
+            var reservation = {
+                fecha: $("#fecha").val(),
+                hora: $("#hora").val(),
+                cancha: $("#cancha").val(),
+                correo: $("#correo").val()
+            };
+            var savedReservations = JSON.parse(localStorage.getItem('reservas')) || [];
+            savedReservations.push(reservation);
+            localStorage.setItem('reservas', JSON.stringify(savedReservations));
         }
+    
+        // Function to check if there is an existing reservation for the same time and the same court
+        function checkExistingReservation() {
+            var newReservation = {
+                fecha: $("#fecha").val(),
+                hora: $("#hora").val(),
+                cancha: $("#cancha").val()
+            };
+            var savedReservations = JSON.parse(localStorage.getItem('reservas')) || [];
+            return savedReservations.some(function(reservation) {
+                return reservation.fecha === newReservation.fecha && reservation.hora === newReservation.hora && reservation.cancha === newReservation.cancha;
+            });
+        }
+    
+        $("#miFormulario").submit(function(event) {
+            event.preventDefault();
+            var formularioCompleto = $("#fecha").val()!== "" && $("#hora").val()!== "" && $("#cancha").val()!== "" && $("#correo").val()!== "";
+    
+            if (formularioCompleto) {
+                if (!checkExistingReservation()) {
+                    saveReservationToLocalStorage();
+                    window.location.href = "pago.html";
+                } else {
+                    alert("Ya existe una reserva para el mismo horario y la misma cancha.");
+                }
+            } else {
+                alert("Por favor complete todos los campos obligatorios antes de ir al pago.");
+            }
+        });
     });
-});
-</script>
+    </script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
