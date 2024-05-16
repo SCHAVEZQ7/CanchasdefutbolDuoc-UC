@@ -119,7 +119,6 @@
                 fecha: $("#fecha").val(),
                 hora: $("#hora").val(),
                 cancha: $("#cancha").val(),
-                correo: $("#correo").val()
             };
             var savedReservations = JSON.parse(localStorage.getItem('reservas')) || [];
             savedReservations.push(reservation);
@@ -138,7 +137,21 @@
                 return reservation.fecha === newReservation.fecha && reservation.hora === newReservation.hora && reservation.cancha === newReservation.cancha;
             });
         }
-    
+        function saveReservationToLocalStorage() {
+            var reservation = {
+                fecha: $("#fecha").val(),
+                hora: $("#hora").val(),
+                cancha: $("#cancha").val(),
+    };
+    var savedReservations = JSON.parse(localStorage.getItem('reservas')) || [];
+    savedReservations.push(reservation);
+    localStorage.setItem('reservas', JSON.stringify(savedReservations));
+
+    // Muestra una ventana emergente con el resumen de la reserva
+    alert("Reserva guardada:\nFecha: " + reservation.fecha + "\nHora: " + reservation.hora + "\nCancha: " + reservation.cancha );
+}
+
+
         $("#miFormulario").submit(function(event) {
             event.preventDefault();
             var formularioCompleto = $("#fecha").val()!== "" && $("#hora").val()!== "" && $("#cancha").val()!== "" && $("#correo").val()!== "";
