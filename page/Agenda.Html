@@ -55,12 +55,26 @@
         width: fit-content;
         margin: 20px auto; /* Añade espacio arriba y abajo del botón y lo centra horizontalmente */
     }
+    .pago-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    margin: 4px 2px;
+    border-radius: 5px;
+}
+
+    .pago-button:hover, .pago-button:active {
+    background-color: #4CAF50; /* El mismo color de fondo que el botón normal */
+    color: white; /* El mismo color de texto que el botón normal */
+    text-decoration: none; /* No hay subrayado */
+}
     </style>
 </head>
 <body>
 
 <div>
-    <form id="miFormulario" action="pago.html" method="get">
+    <form id="miFormulario"  method="get">
         <h1>Reserva de Canchas</h1>
         <label for="fecha">Fecha:</label>
         <input type="date" id="fecha" name="fecha" required>
@@ -94,18 +108,11 @@
             <option value="6">Cancha 6</option>
         </select>
 
+        <a href="https://mpago.la/1Fv5Gxy" class="pago-button"> Pagar</a>
 
-        
-        <script src="https://www.mercadopago.cl/integrations/v1/web-payment-checkout.js"
-        data-preference-id="1813813646-eb3a8676-92e8-4cd6-abf8-1162c9dc78b8" data-source="button">
-        </script>
-
-        <form action="ReservaLista.Html" method="post">
-            <div class="form-group">
-                <a href="ReservaLista.Html" style="background-color: #4CAF50; padding: 10px; color: white; text-decoration: none; border-radius: 5px;">Continuar</a>
-             </div>
-        </form>
-        
+        <div class="form-group">
+            <a href="ReservaLista.Html" style="background-color: #4CAF50; padding: 10px; color: white; text-decoration: none; border-radius: 5px;">Continuar</a>
+        </div> 
     </form>
 </div>
 
