@@ -83,6 +83,30 @@
     </div>
 
     <script>
+    function validarFormulario() {
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+    // Validar correo electrónico
+    if (!isValidEmail(email)) {
+        alert("Por favor, ingresa un correo electrónico válido.");
+        return false;
+    }
+
+    // Validar contraseña
+    if (password.length < 8) {
+        alert("La contraseña debe tener al menos 8 caracteres.");
+        return false;
+    }
+
+    return true;
+}
+
+function isValidEmail(email) {
+    // Utiliza una expresión regular para verificar el formato del correo electrónico
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
         document.addEventListener("DOMContentLoaded", function() {
             // Obtener el formulario
             const form = document.getElementById("loginForm");
