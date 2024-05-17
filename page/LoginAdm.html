@@ -109,16 +109,30 @@
     </div>
     
     <script>
+        // Establecer el usuario y contraseña predeterminados en LocalStorage
+        localStorage.setItem('adminUsername', 'admin');
+        localStorage.setItem('adminPassword', '123');
+
         document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evitar el envío del formulario por defecto
+
             var username = document.getElementById('admin_username').value;
             var password = document.getElementById('admin_password').value;
     
-            if (!username || !password) {
-                alert('Debes llenar todos los campos para iniciar sesión');
-                event.preventDefault();
+            // Obtener el usuario y contraseña almacenados en LocalStorage
+            var storedUsername = localStorage.getItem('adminUsername');
+            var storedPassword = localStorage.getItem('adminPassword');
+    
+            // Verificar si las credenciales coinciden
+            if (username === storedUsername && password === storedPassword) {
+                alert('Inicio de sesión exitoso');
+                // Redirigir a la página de administración o hacer algo más
+                window.location.href = 'PaginaInicioAdm.html'; // Cambia esto a la página de destino adecuada
+            } else {
+                alert('Nombre de usuario o contraseña incorrectos');
             }
         });
     </script>
     
 </body>
- </html>
+</html>
