@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Canchas DuocUC:Reestablecer</title>
+    <title>Canchas DuocUC: Restablecer contraseña</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="../css/styles.css">
     <style>
         body {
             font-family: Arial, sans-serif;
-            
             margin: 0;
             padding: 0;
             display: flex;
@@ -57,25 +57,49 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s ease; 
-            text-decoration: none; 
+            transition: background-color 0.3s ease;
             margin-top: 20px;
         }
 
         .submit-button:hover {
-            background-color: #45a049; 
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
     <div>
-        <form>
-            <h1>Restablecer Contraseña</h1>
-            <p>Por favor ingresa tu dirección de correo electrónico para restablecer tu contraseña.</p>
-            <label for="email">Correo electrónico:</label><br>
-            <input type="email" id="email" name="email" required><br><br>
-            <a href="ContrasenaReestablecida.HTML" class="submit-button">Restablecer ConTraseña</a>
+        <form class="form" onsubmit="return validarFormulario()">
+            <div class="container">
+                <h1>Restablecer Contraseña</h1>
+                <p>Por favor ingresa la dirección de correo electrónico con la que te registraste.</p>
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" placeholder="Ingrese su correo" required>
+                <button type="submit" class="submit-button">Restablecer Contraseña</button>
+            </div>
         </form>
     </div>
+    <script>
+        function validarFormulario() {
+            const email = document.getElementById("email").value;
+            
+            // Validar correo electrónico
+            if (!isValidEmail(email)) {
+                alert("Por favor, ingresa un correo electrónico válido.");
+                return false; // Evitar envío de formulario.
+            }
+
+            // Enlace para redirigir a contraseña reestablecida si el correo es valido.
+            window.location.href = "ContrasenaReestablecida.html";
+            return false; 
+            // Prevenir el envío del formulario para permitir la redirección
+        }
+
+        function isValidEmail(email) {
+            // Expresión regular para verificar el formato del correo electrónico.
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+    </script>
 </body>
 </html>
+
