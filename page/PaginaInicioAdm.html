@@ -57,6 +57,42 @@
             text-align: center;
             margin-bottom: 20px;
         }
+        .modal {
+        display: none; /* Ocultar por defecto */
+        position: fixed; /* Mantenerlo en su lugar */
+        z-index: 1; /* Situarlo encima de todo */
+        left: 0;
+        top: 0;
+        width: 100%; /* Ancho completo */
+        height: 100%; /* Altura completa */
+        overflow: auto; /* Habilitar scroll si es necesario */
+        background-color: rgb(0,0,0); /* Color de fondo */
+        background-color: rgba(0,0,0,0.4); /* Color de fondo con opacidad */
+    }
+
+    /* Contenido del modal */
+        .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto; /* 15% desde arriba y centrado */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%; /* Ancho del modal */
+    }
+
+    /* Botón de cierre */
+        .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+        .close:hover,
+        .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
         
     </style>
 </head>
@@ -64,23 +100,89 @@
 
     <div class="container">
         <h1>Panel de Administrador</h1>
-        
+            
         <div class="info-item">
             <h3>Canchas Arrendadas</h3>
-            <p>5 canchas arrendadas actualmente.</p>
+            <p id="canchas-arrendadas">5 canchas arrendadas actualmente.</p>
         </div>
-        
+            
         <div class="info-item">
             <h3>Dinero Recaudado</h3>
-            <p>$1500 recaudados hoy.</p>
+            <p id="dinero-recaudado">$1500 recaudados hoy.</p>
         </div>
-        
-        
-    </div>
+         
+        <div id="detalle-canchas"></div>
 
-    <div class="inicio-button">
-        <button onclick="window.location.href='PaginaInicio.html'">Cerrar Sesión</button>
+        <div class="inicio-button">
+            <button onclick="window.location.href='PaginaInicio.html'">Cerrar Sesión</button>
+            <button id="btnEditarCanchas">Editar Canchas</button>
+        </div>
+        <!-- Modal Editar Canchas -->
+    <div id="modalEditarCanchas" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="document.getElementById('modalEditarCanchas').style.display='none'">&times;</span>
+            <p>Editar Canchas</p>
+            <form id="formAgregarCancha">
+                <label for="nombreCancha">Nombre de la Cancha:</label>
+                <input type="text" id="nombreCancha" name="nombreCancha">
+                <button type="submit">Agregar Cancha</button>
+            </form>
+            <form id="formEliminarCancha">
+                <label for="nombreCanchaEliminar">Nombre de la Cancha a eliminar:</label>
+                <input type="text" id="nombreCanchaEliminar" name="nombreCanchaEliminar">
+                <button type="submit">Eliminar Cancha</button>
+            </form>
+        </div>
     </div>
+    </div>
+    
+    <script>
+        window.onload = function() {
+            var reservas = JSON.parse(localStorage.getItem('reservas')) || [];
+            var canchasArrendadas = reservas.length;
+            var dineroRecaudado = canchasArrendadas * 30000;
+    
+            document.getElementById('canchas-arrendadas').textContent = canchasArrendadas + ' canchas arrendadas actualmente.';
+            document.getElementById('dinero-recaudado').textContent = '$' + dineroRecaudado + ' recaudados hoy.';
+    
+            var detalleCanchas = document.getElementById('detalle-canchas');
+            reservas.forEach(function(reserva) {
+                var p = document.createElement('p');
+                p.textContent = 'Fecha: ' + reserva.fecha + ', Hora: ' + reserva.hora + ', Cancha: ' + reserva.cancha;
+                detalleCanchas.appendChild(p);
+            });
+            // Evento para abrir el modal
+        document.getElementById('btnEditarCanchas').addEventListener('click', function() {
+            document.getElementById('modalEditarCanchas').style.display = 'block';
+        });
+
+        // Aquí puedes agregar la lógica para agregar y eliminar canchas
+        document.getElementById('formAgregarCancha').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Aquí puedes agregar la lógica para agregar una cancha
+            var nombreCancha = document.getElementById('nombreCancha').value;
+            var canchas = JSON.parse(localStorage.getItem('canchas')) || [];
+            canchas.push(nombreCancha);
+            localStorage.setItem('canchas', JSON.stringify(canchas));
+            alert('Cancha agregada con éxito: ' + nombreCancha);
+        });
+
+        document.getElementById('formEliminarCancha').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Aquí puedes agregar la lógica para eliminar una cancha
+            var nombreCanchaEliminar = document.getElementById('nombreCanchaEliminar').value;
+            var canchas = JSON.parse(localStorage.getItem('canchas')) || [];
+             var index = canchas.indexOf(nombreCanchaEliminar);
+             if (index > -1) {
+                canchas.splice(index, 1);
+                localStorage.setItem('canchas', JSON.stringify(canchas));
+                alert('Cancha eliminada con éxito: ' + nombreCanchaEliminar);
+             } else {
+                alert('No se encontró la cancha: ' + nombreCanchaEliminar);
+        }
+        });
+        };
+    </script>
     
 
 </body>
