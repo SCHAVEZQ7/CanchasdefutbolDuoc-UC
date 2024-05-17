@@ -71,7 +71,7 @@
         <form class="form" onsubmit="return validarFormulario()">
             <div class="container">
                 <h1>Restablecer Contraseña</h1>
-                <p>Por favor ingresa la dirección de correo electrónico con la que te registraste.</p>
+                <p>Por favor ingresa la dirección de correo electrónico con la que se registro.</p>
                 <label for="email">Correo electrónico:</label>
                 <input type="email" id="email" placeholder="Ingrese su correo" required>
                 <button type="submit" class="submit-button">Restablecer Contraseña</button>
@@ -89,6 +89,7 @@
             }
 
             // Enlace para redirigir a contraseña reestablecida si el correo es valido.
+            alert("Te hemos enviado un correo para restablecer la contraseña.");//mensaje de aviso de envio de email al redirigir
             window.location.href = "ContrasenaReestablecida.html";
             return false; 
             // Prevenir el envío del formulario para permitir la redirección
