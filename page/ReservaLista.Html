@@ -75,6 +75,14 @@
         .footer button {
             margin-left: 10px; /* Espacio entre el botón "Cerrar sesión" y el nuevo botón */
         }
+
+        .weatherwidget-cuadrado {
+            width: 300px; /* Ancho del widget */
+            height: 300px; /* Altura del widget para hacerlo cuadrado */
+            display: block; /* Asegura que el enlace se comporte como un bloque */
+            overflow: hidden; /* Oculta cualquier parte del iframe que exceda las dimensiones */
+            margin: auto
+        }
     </style>
 </head>
 <body>
@@ -130,6 +138,10 @@
         // Llama a la función para mostrar la información de la reserva cuando la página se carga
         mostrarInfoReserva();
     });
+    </script>
+    <a class="weatherwidget-io" href="https://forecast7.com/es/n33d44n70d65/santiago/" data-label_1="SANTIAGO" data-label_2="CLIMA" data-theme="original" >SANTIAGO CLIMA</a>
+    <script>
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
     </script>
 </body>
 </html>
