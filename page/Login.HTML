@@ -77,68 +77,11 @@
                 <a href="ReestablecerContrasena.HTML">¿Olvidaste tu contraseña?</a>
             </div>
             <div class="form-group">
-                <a href="CrearUsuario.HTML">Crear cuenta</a>
+                <a href="register.html">Crear cuenta</a>
             </div>
         </form>
     </div>
 
-    <script>
-    function validarFormulario() {
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
-
-    // Validar correo electrónico
-    if (!isValidEmail(email)) {
-        alert("Por favor, ingresa un correo electrónico válido.");
-        return false;
-    }
-
-    // Validar contraseña
-    if (password.length < 8) {
-        alert("La contraseña debe tener al menos 8 caracteres.");
-        return false;
-    }
-
-    return true;
-}
-
-function isValidEmail(email) {
-    // Utiliza una expresión regular para verificar el formato del correo electrónico
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-}
-        document.addEventListener("DOMContentLoaded", function() {
-            // Obtener el formulario
-            const form = document.getElementById("loginForm");
-
-            // Agregar evento de envío al formulario
-            form.addEventListener("submit", function(event) {
-                event.preventDefault(); // Prevenir el envío del formulario por defecto
-
-                // Obtener datos del formulario
-                const email = document.getElementById("email").value;
-                const password = document.getElementById("password").value;
-
-                // Obtener usuario del localStorage
-                const usuarioString = localStorage.getItem(email);
-
-                if (!usuarioString) {
-                    alert("El usuario no existe.");
-                    return; // Detener la ejecución si el usuario no existe
-                }
-
-                const usuario = JSON.parse(usuarioString);
-
-                // Verificar la contraseña
-                if (usuario.password !== password) {
-                    alert("La contraseña es incorrecta.");
-                    return; // Detener la ejecución si la contraseña es incorrecta
-                }
-
-                // Redirigir a otra página
-                window.location.href = "Agenda.html";
-            });
-        });
-    </script>
+    <script src="../js/login.js"></script>
 </body>
 </html>
